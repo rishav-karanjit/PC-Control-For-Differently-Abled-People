@@ -2,6 +2,7 @@ import pyttsx3
 import nltk
 import wikipedia
 
+from Internet_Search import Search
 from DateAndTime import DateAndTime 
 from SpeechRecog import Command 
 from Greeting import GreetMe
@@ -28,22 +29,16 @@ def option(query):
 
     elif "wikipedia" in query:
         query = query.replace('wikipedia','')
-        tokens = nltk.word_tokenize(query)
-        tagged = nltk.pos_tag(tokens)
-        for i in tagged:
-            if i[1] is NN or NNS:
-                print(i[0])
-
+        S.Wiki_Result(query)
     else:
         Ctr.Speak("Say that again please")
 
 Ctr = controller()
 Greet = GreetMe()
-Ctr.Speak(Greet.Welcome())
-
+# Ctr.Speak(Greet.Welcome())
 
 Com = Command()
 query = Com.TakeCommand().lower()
 DT = DateAndTime()
-
+S = Search()
 option(query)
