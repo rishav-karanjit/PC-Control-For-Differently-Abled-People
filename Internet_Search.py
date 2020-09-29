@@ -1,5 +1,7 @@
 import nltk
 import wikipedia
+import requests
+from bs4 import BeautifulSoup  
 
 class Search:
     def Wiki_Result(self,query):
