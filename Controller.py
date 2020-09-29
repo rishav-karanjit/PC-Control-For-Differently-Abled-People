@@ -29,7 +29,7 @@ def option(query):
 
     elif "wikipedia" in query:
         query = query.replace('wikipedia','')
-        S.Wiki_Result(query)
+        Ctr.Speak(S.Wiki_Result(query))
     else:
         Ctr.Speak("Say that again please")
 
