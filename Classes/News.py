@@ -17,7 +17,4 @@ class News:
             news = str(news.title.text)
             news=news.replace("-", "\n\tNews by")
             news = str(i) +" " + news + "\n"
-            print(news)
-
-N =News()
-N.GetTopNews()
+            return(news)
