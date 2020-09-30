@@ -2,10 +2,10 @@ import pyttsx3
 import nltk
 import wikipedia
 
-from Internet_Search import Search
-from DateAndTime import DateAndTime 
-from SpeechRecog import Command 
-from Greeting import GreetMe
+from Classes.Internet_Search import Search
+from Classes.DateAndTime import DateAndTime 
+from Classes.SpeechRecog import Command 
+from Classes.Greeting import GreetMe
 
 class controller:
     def __init__(self):
