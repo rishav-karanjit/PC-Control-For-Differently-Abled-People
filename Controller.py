@@ -13,7 +13,8 @@ class controller:
     def __init__(self):
         self.engine = pyttsx3.init()
 
-    def Speak(self,audio):      
+    def Speak(self,audio):
+        print(audio)      
         self.engine.say(audio)
         self.engine.runAndWait()
 
@@ -26,8 +27,8 @@ class controller:
         Ctr.Speak(DT.TimeNow())
 
     def option(self,query):
-        if "Can you" in query:
-            Greet.Ans_Yes()
+        if "can you" in query:
+            Ctr.Speak(Greet.Ans_Yes())
 
         if "date" in query:
             Ctr.AskDate()
@@ -42,8 +43,12 @@ class controller:
             Ctr.Speak(N.GetTopNews())
             self.engine.setProperty('rate', 200)
 
-        elif "CPU" in query:
+        elif "cpu" in query:
             Ctr.Speak(SystemInfo.GetCpu())
+
+        elif "battery" in query:
+            Ctr.Speak(SystemInfo.GetBattery())
+
         else:
             Ctr.Speak("Say that again please")
 

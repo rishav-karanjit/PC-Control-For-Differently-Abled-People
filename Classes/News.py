@@ -18,7 +18,6 @@ class News:
             news = str(news.title.text)
             # news=news.replace("-", "\n\tNews by")
             Allnews = Allnews + "News " + str(i) +" " + news + "\n"
-        print(Allnews)
         return(Allnews)
 
 # N = News()
