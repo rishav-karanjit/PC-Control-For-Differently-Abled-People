@@ -12,9 +12,14 @@ class News:
         news_list=soup_page.findAll("item")
         # Print news title, url and publish date
         i=0
+        Allnews = ''
         for news in news_list[:5]:
             i +=1 
             news = str(news.title.text)
-            news=news.replace("-", "\n\tNews by")
-            news = str(i) +" " + news + "\n"
-            return(news)
+            # news=news.replace("-", "\n\tNews by")
+            Allnews = Allnews + "News " + str(i) +" " + news + "\n"
+        print(Allnews)
+        return(Allnews)
+
+# N = News()
+# N.GetTopNews()

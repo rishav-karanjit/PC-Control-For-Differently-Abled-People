@@ -3,6 +3,7 @@ import psutil
 class GetSys:
     def GetCpu(self):
         usage = str(psutil.cpu_percent(interval=1))+"%"
+        usage = "Your Cpu Usage is " + usage
         return usage
     
     def GetBattery(self):
