@@ -1,5 +1,5 @@
 ##### This project may not work correctly because I have not completed it yet. | Work in progress |
-# PC Control For differently abled people
+# PC Control For Differently Abled People
 
 ### Problems
 <ul>
@@ -9,7 +9,7 @@
   <li>There are some softwares like JAWS screen reader but it is not free.</li>
 </ul>
 
-### Solution
+### Solutions
 <ul>
   <li>This application uses voice input. So I think it will be very helpful specially for visually impaired people and people who can't use keyboard.</li>
   <li>This application starts right after the windows have started. So, there won't be any need to use keyboard even to start the app.</li>
