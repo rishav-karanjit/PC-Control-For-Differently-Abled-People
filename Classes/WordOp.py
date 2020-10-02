@@ -3,6 +3,7 @@ import os
 class Word:
     def __init__(self):
         self.mydoc = docx.Document()
+        
     def WReadAll(self,Doc_Name):
         Doc_Name += ".docx"
         doc = docx.Document(os.path.join(".\Doc",Doc_Name))
@@ -12,15 +13,15 @@ class Word:
             all_para = all_para + "\n" + para.text
         return all_para
     
-    def WReadPara(self,Doc_Name,ParaNum):
-        Doc_Name += ".docx"
-        doc = docx.Document(os.path.join(".\Doc",Doc_Name))
-        ParaNum-=1
-        para = doc.paragraphs[ParaNum]
-        while(para.text == ""):
-            ParaNum+=1
-            para = doc.paragraphs[ParaNum]
-        return para.text
+    # def WReadPara(self,Doc_Name,ParaNum):
+    #     Doc_Name += ".docx"
+    #     doc = docx.Document(os.path.join(".\Doc",Doc_Name))
+    #     ParaNum-=1
+    #     para = doc.paragraphs[ParaNum]
+    #     while(para.text == ""):
+    #         ParaNum+=1
+    #         para = doc.paragraphs[ParaNum]
+    #     return para.text
 
     def WAddPara(self,text):
         self.mydoc.add_paragraph(text)

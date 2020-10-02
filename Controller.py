@@ -53,6 +53,9 @@ class controller:
         elif "write" in query:
             self.WordWCtr()
 
+        elif "read" in query:
+            self.WordRCtr()
+
         else:
             Ctr.Speak("Say that again please")
 
@@ -77,12 +80,18 @@ class controller:
                 FileName = Com.TakeCommand()
                 Word.SaveWrittenTxt(FileName)
                 return
-                
+
             else:
                 Ctr.Speak("What do you want me to write?")
                 Write = Com.TakeCommand()
                 flag = 0
                 Ctr.Speak("Heading written.")
+
+    def WordRCtr(self):
+        Ctr.Speak("What is the name of file you want me to read")
+        FileName = Com.TakeCommand()
+        Ctr.Speak("This is what I found in the file:")
+        Word.WReadAll(FileName)
 
 Ctr = controller()
 Greet = GreetMe()
