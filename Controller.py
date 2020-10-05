@@ -32,6 +32,7 @@ class controller:
         Ctr.Speak(DT.TimeNow())
 
     def option(self,query):
+        exitword =['quit','exit']
         if "can you" in query:
             Ctr.Speak(Greet.Ans_Yes())
 
@@ -60,6 +61,8 @@ class controller:
         elif "read" in query:
             self.WordRCtr()
 
+        elif query in e:
+            quit()
         else:
             Ctr.Speak("Say that again please")
 
@@ -96,8 +99,7 @@ class controller:
         FileName = Com.TakeCommand()
         Ctr.Speak("This is what I found in the file:")
         Word.WReadAll(FileName)
-# cursor.execute('DELETE FROM userinfo')
-# db.commit()  
+ 
 try:
     cursor.execute('SELECT * FROM userinfo')
     name = cursor.fetchone()[0]
@@ -107,6 +109,11 @@ except:
 Ctr = controller()
 Greet = GreetMe()
 Com = Command()
+DT = DateAndTime()
+S = Search()
+N = News()
+SystemInfo = GetSys()
+Word = Word()
 
 if name:
     Ctr.Speak(Greet.Welcome(name))
@@ -116,11 +123,6 @@ else:
     name = '\"' + name + '\"'
     cursor.execute('INSERT INTO userinfo(Name) VALUES({name})'.format(name=name))
     db.commit()
-
-# query = Com.TakeCommand().lower()
-# DT = DateAndTime()
-# S = Search()
-# N = News()
-# SystemInfo = GetSys()
-# Word = Word()
-# Ctr.option(query)
+while(1):
+    query = Com.TakeCommand().lower()
+    Ctr.option(query)
