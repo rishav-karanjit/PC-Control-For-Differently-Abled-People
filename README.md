@@ -1,4 +1,3 @@
-##### This project may not work correctly because I have not completed it yet. | Work in progress |
 # PC Control For Differently Abled People
 
 ### Problems
