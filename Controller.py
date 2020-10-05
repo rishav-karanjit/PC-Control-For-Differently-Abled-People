@@ -1,6 +1,7 @@
 import pyttsx3
 import nltk
 import wikipedia
+import mysql.connector
 
 from Classes.News import News
 from Classes.Internet_Search import Search
@@ -9,6 +10,9 @@ from Classes.SpeechRecog import Command
 from Classes.Greeting import GreetMe
 from Classes.SysInfo import GetSys
 from Classes.WordOp import Word
+
+db = mysql.connector.connect(host='localhost',user='root',password='root',database='PCcontrol')
+cursor = db.cursor()
 
 class controller:
     def __init__(self):
@@ -92,16 +96,31 @@ class controller:
         FileName = Com.TakeCommand()
         Ctr.Speak("This is what I found in the file:")
         Word.WReadAll(FileName)
+# cursor.execute('DELETE FROM userinfo')
+# db.commit()  
+try:
+    cursor.execute('SELECT * FROM userinfo')
+    name = cursor.fetchone()[0]
+except:
+    name = False
 
 Ctr = controller()
 Greet = GreetMe()
-# Ctr.Speak(Greet.Welcome())
-
 Com = Command()
-query = Com.TakeCommand().lower()
-DT = DateAndTime()
-S = Search()
-N = News()
-SystemInfo = GetSys()
-Word = Word()
-Ctr.option(query)
+
+if name:
+    Ctr.Speak(Greet.Welcome(name))
+else:
+    Ctr.Speak(Greet.Welcome(name))
+    name = str(Com.TakeCommand())
+    name = '\"' + name + '\"'
+    cursor.execute('INSERT INTO userinfo(Name) VALUES({name})'.format(name=name))
+    db.commit()
+
+# query = Com.TakeCommand().lower()
+# DT = DateAndTime()
+# S = Search()
+# N = News()
+# SystemInfo = GetSys()
+# Word = Word()
+# Ctr.option(query)
