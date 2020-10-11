@@ -28,3 +28,9 @@
   <li>To make UI for this project</li>
   <li>To increase the assessbility of the project</li>
 </ul>
+
+### Demo
+<ul>
+  <li> You can download the demo video at: <br>
+    https://github.com/rishav-karanjit/PC-Control-For-Differently-Abled-People/blob/master/Demo/PC%20Control%20Demo.mp4?raw=true</li>
+</ul>
