@@ -12,7 +12,7 @@ class Search:
                 search = i[0]
         try:
             result = wikipedia.summary(search,sentences=3)
-            return "According to wikipedia" + result
+            return "According to wikipedia " + result
         except wikipedia.DisambiguationError as e:
             result = wikipedia.summary(e.options[1],sentences=3)
-            return "According to wikipedia" + result
+            return "According to wikipedia " + result

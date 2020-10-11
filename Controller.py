@@ -2,6 +2,8 @@ import pyttsx3
 import nltk
 import wikipedia
 import mysql.connector
+import sys
+import warnings
 
 from Classes.News import News
 from Classes.Internet_Search import Search
@@ -10,6 +12,10 @@ from Classes.SpeechRecog import Command
 from Classes.Greeting import GreetMe
 from Classes.SysInfo import GetSys
 from Classes.WordOp import Word
+
+flag = 0
+if not sys.warnoptions:
+    warnings.simplefilter("ignore")
 
 db = mysql.connector.connect(host='localhost',user='root',password='root',database='PCcontrol')
 cursor = db.cursor()
@@ -32,7 +38,6 @@ class controller:
         Ctr.Speak(DT.TimeNow())
 
     def option(self,query):
-        exitword =['quit','exit']
         if "can you" in query:
             Ctr.Speak(Greet.Ans_Yes())
 
@@ -61,7 +66,8 @@ class controller:
         elif "read" in query:
             self.WordRCtr()
 
-        elif query in e:
+        elif "no" in query:
+            Ctr.Speak("Ending the program")
             quit()
         else:
             Ctr.Speak("Say that again please")
@@ -98,7 +104,7 @@ class controller:
         Ctr.Speak("What is the name of file you want me to read")
         FileName = Com.TakeCommand()
         Ctr.Speak("This is what I found in the file:")
-        Word.WReadAll(FileName)
+        Ctr.Speak(Word.WReadAll(FileName))
  
 try:
     cursor.execute('SELECT * FROM userinfo')
@@ -124,5 +130,8 @@ else:
     cursor.execute('INSERT INTO userinfo(Name) VALUES({name})'.format(name=name))
     db.commit()
 while(1):
+    if flag == 1:
+        Ctr.Speak("Do you have any more commands?")
+    flag = 1
     query = Com.TakeCommand().lower()
     Ctr.option(query)
