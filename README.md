@@ -18,6 +18,13 @@
 
 ### To run this project:
 <ul>
+  <li>This program needs MySQL server or you can change the database after downloading this project</li>
   <li>pip install -r requirements.txt</li>
   <li>python controller.py</li>
+</ul>
+
+### Future Objectives:
+<ul>
+  <li>To make UI for this project</li>
+  <li>To increase the assessbility of the project</li>
 </ul>
