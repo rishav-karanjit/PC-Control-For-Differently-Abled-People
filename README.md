@@ -31,6 +31,8 @@
 
 ### Demo
 <ul>
-  <li> You can download the demo video at: <br>
+  <li> You can download the demo video at:<br>
     https://github.com/rishav-karanjit/PC-Control-For-Differently-Abled-People/blob/master/Demo/PC%20Control%20Demo.mp4?raw=true</li>
+  <li> Or you can watch it on youtube:🔽</li>
 </ul>
+<a href="https://www.youtube.com/watch?v=D6dtLt7ZizA"><img src="https://github.com/rishav-karanjit/PC-Control-For-Differently-Abled-People/blob/master/Demo/Demo%20Video%20Screenshot.png"></a>
